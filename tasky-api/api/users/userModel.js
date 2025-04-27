@@ -22,6 +22,12 @@ UserSchema.statics.findByUserName = function (username) {
     //const user = this;
     if (this.isModified('password') || this.isNew) {
       try {
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        if (!passwordRegex.test(this.password)) {
+            const err = new Error('Password must be at least 8 characters long and contain at least one letter, one digit, and one special character.');
+            return next(err);
+          }
+
         const hash = await bcrypt.hash(this.password, saltRounds);
         this.password = hash;
         next();

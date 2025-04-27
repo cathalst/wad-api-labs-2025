@@ -12,6 +12,7 @@ const TaskSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    deadline: { type: Date, required: true } 
     
     
 });
