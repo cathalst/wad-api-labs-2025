@@ -1,4 +1,14 @@
 {
+  "name": "wad-api-labs-2025",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start --prefix tasky-api",
+    "dev": "npm run dev --prefix tasky-react"
+  },
+  "author": "cathalst",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5"
   }
